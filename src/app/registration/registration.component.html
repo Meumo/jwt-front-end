@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="alert alert-danger" *ngIf="mode==0 && errorMessage">
+        <strong>{{errorMessage}} !!</strong>
+    </div>
+    <div class="col-md-6 col-md-offset-3" *ngIf="mode==0">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Registration</h3>
+            </div>
+            <div class="panel-body">
+                <form #f="ngForm" (ngSubmit)="onRegister(f.value)">
+                    <div class="form-group">
+                        <label class="control-label">Username:</label>
+                        <input class="form-control" ngModel type="text" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Password:</label>
+                        <input class="form-control" ngModel type="password" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Confirm Password:</label>
+                        <input class="form-control" ngModel type="password" name="repassword" required>
+                    </div>
+                    <button class="btn btn-primary" type="submit" [disabled]=!f.valid>register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-success" *ngIf="mode==1">
+        <div class="panel-heading">
+            <h3 class="panel-title">Registration success</h3>
+        </div>
+        <div class="panel-body">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    Your Id : {{user.id}}
+                </li>
+                <li class="list-group-item">
+                    Your Username : {{user.username}}
+                </li>
+                <li class="list-group-item">
+                    Your role : {{user.roles[0].roleName}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

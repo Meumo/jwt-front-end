@@ -1,0 +1,19 @@
+<div class="container">
+    <p></p>
+    <button class="btn btn-success" (click)="onNewTask()" *ngIf="authService.isAdmin()">New Task</button>
+    <p></p>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>ID</th><th>Task Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let t of tasks">
+                <td>{{t.id}}</td>
+                <td>{{t.taskName}}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+</div>
